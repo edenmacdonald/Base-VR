@@ -11,8 +11,18 @@
 
 <body>
     <a-scene>
-        <a-entity environment="preset: forest; dressingAmount: 500;skyColor:Blue; groundColor2: #008000; fog: 0; ground: hills; ground Texture: none; groundColor: #46923c; dressing: trees"></a-entity>
-       
+        <a-entity environment="preset: forest; dressingAmount: 500;skyColor:blue; groundColor2: #008000; fog: 0; ground: hills; ground Texture: none; groundColor: #46923c; dressing: trees; ground: noise;"></a-entity>
+        <a-cylinder id="floor" position="0 0 0" radius="7.5" color="grey" height="0.1"></a-cylinder>; scale = "10.5 10.5 0.1; rotation = "90 0 0"
+         <a-box id="box1" position="0 1.473 4.907" rotation="0 0 0" scale="10 3 0.2 color="src="588157"></a-box>; scale="10 3 0.2"
+         <a-box id="box2" position="0 1.473 -4.907" rotation="0 0 0" scale="10 3 0.2 color="588157></a-box>; scale="10 3 0.2"
+         <a-box id="box3" position="5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="588157></a-box>; scale="10 3 0.2"
+         <a-box id="box4" position="-5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="588157></a-box>; scale="10 3 0.2"
+         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874 4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="588157"></a-cylinder>
+         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874  -4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="588157"></a-cylinder>
+         <a-box id="roof_right" position=" 2.580 4.328 0" rotation="28.433 90 0" scale="10.931 0.20 6.110" color="silver"></a-box>
+         <a-box id="roof_right" position="  -2.599 4.321 -0.017" rotation="28.433 -90 0" scale="10.931 0.20 6.130" color="silver"></a-box>
+         <a-plane id="art1" src="c14da016-fd6b-4f03-b0fb-b06f7a5befa7.jpeg" scale="2 2 0.05" rotation="0 0 0" position="-0.162 1.934 -4.792"></a-plane>
+
       </a-scene>
 </body>
 </html>
