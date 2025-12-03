@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script src="script.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,76 @@
     <title>Eden VR</title>
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+<script src="script.js"></script>
+</head>
 
 <body>
     <a-scene>
+        <a-assets>
+            <!-- Video -->
+
+      <video id="videoclip" loop="true" src="tvAssets/surfing Video.mp4" crossorigin="anonymous" preload="auto"></video>
+    
+      <!-- Buttons and Background -->
+    
+      <img id="play" src="tvAssets/btnPlay.png" preload="auto">
+    
+      <img id="pause" src="tvAssets/btnPause.png" preload="auto">
+    
+      <img id="tv_background" src="tvAssets/tv_background.jpg" preload="auto">
+        </a-assets>
         <a-entity environment="preset: forest; dressingAmount: 500;skyColor:blue; groundColor2: #008000; fog: 0; ground: hills; ground Texture: none; groundColor: #46923c; dressing: trees; ground: noise;"></a-entity>
-        <a-cylinder id="floor" position="0 0 0" radius="7.5" color="grey" height="0.1"></a-cylinder>
-         <a-box id="box1" position="0 1.473 4.907" rotation="0 0 0" scale="10 3 0.2 color="src="588157"></a-box>
-         <a-box id="box2" position="0 1.473 -4.907" rotation="0 0 0" scale="10 3 0.2 color="588157></a-box>
-         <a-box id="box3" position="5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="588157></a-box>
-         <a-box id="box4" position="-5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="588157></a-box>
-         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874 4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="588157"></a-cylinder>
-         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874  -4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="588157"></a-cylinder>
-         <a-box id="roof_right" position=" 2.580 4.328 0" rotation="28.433 90 0" scale="10.931 0.20 6.110" color="silver"></a-box>
-         <a-box id="roof_right" position="  -2.599 4.321 -0.017" rotation="28.433 -90 0" scale="10.931 0.20 6.130" color="silver"></a-box>
+        <a-box id="floor" position="0 0 0" color="grey" scale="10.5 10.5 0.1" rotation="90 0 0"></a-box>
+         <a-box id="box1" position="0 1.473 4.907" rotation="0 0 0" scale="10 3 0.2 color="pink="588157"></a-box>
+         <a-box id="box2" position="0 1.473 -4.907" rotation="0 0 0" scale="10 3 0.2 color="pink></a-box>
+         <a-box id="box3" position="5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="pink></a-box>
+         <a-box id="box4" position="-5.049 1.454 -0.008" rotation="0 -90 0" scale="10 3 0.2 color="pink></a-box>
+         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874 4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="pink"></a-cylinder>
+         <a-cylinder id="triangle_front" segments-radial="3" position="0 3.874  -4.907" rotation="-90 0 0" scale="5.774 0.2 1.8" color="pink"></a-cylinder>
+         <a-box id="roof_right" position=" 2.580 4.328 0" rotation="28.433 90 0" scale="10.931 0.20 6.110" color="blue"></a-box>
+         <a-box id="roof_left" position=" -2.599 4.321 -0.017" rotation="28.433 -90 0" scale="10.931 0.20 6.130" color="blue"></a-box>
          <a-plane id="art1" src="images/meandcousin.jpeg" scale="2 2 0.05" rotation="0 0 0" position="-0.162 1.934 -4.792"></a-plane>
          <a-plane id="art1" src="images/rugbyBall.jpg" scale="2 2 0.05" rotation="0 0 0" position="-2.709 1.934 -4.792"></a-plane>
          <a-obj-model id="3dModel1" src="images/tinker.obj" mtl="images/obj.mtl" position="0 0 0" rotation="-90 0 0" scale=".05 .05 .05"></a-obj-model>
-      </a-scene>
+         <a-entity>
+
+            <a-video src="#videoclip" position="-3.893 1.6 0" rotation="0 90 0" width="2" height="1.125"></a-video>
+          
+            <!-- TV background -->
+          
+            <a-plane id="videoControls" position="-3.893 0.854 0" scale="2 0.386 1.714" rotation="0 90 0" opacity="1" src="#tv_background">
+          
+              <!-- Play button -->
+          
+              <a-plane id="vidplaybox" src="#play" scale="0.122 0.678 0.122" position="-0.350 0 .01" shader="flat" transparent="true" videoplayer></a-plane>
+          
+              <!-- Stop button -->
+          
+              <a-plane id="vidpausebox" src="#pause" scale="0.122 0.678 0.122" position="0.350 0 .01" shader="flat" transparent="true" videopauser></a-plane>
+          
+            </a-plane>
+          
+          </a-entity>
+          
+          <!-- Allows clicking with the mouse -->
+          
+          <a-entity cursor="rayOrigin: mouse"></a-entity>
+           <!-- Movement-->
+
+  <!-- Camera + controllers rig -->
+
+  <a-entity id="rig">
+
+    <a-camera position="0 1.6 0"></a-camera>
+
+<!-- left hand controller with laser pointer -->
+
+    <a-entity laser-controls="hand: left" ></a-entity>
+
+    <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+
+  </a-entity>
+      </a-scene>  
 </body>
+<script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
 </html>
